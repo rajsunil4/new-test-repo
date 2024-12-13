@@ -16,9 +16,9 @@ jobs:
         run: sudo apt install nginx -y
       - name: enabling firewall
         run: sudo ufw allow 'Nginx HTTP'
-  updating_web_page:
-    needs: installation
-    runs-on: self-hosted
-    steps:
+#  updating_web_page:
+#    needs: installation
+#  runs-on: self-hosted
+#    steps:
       - name: copying message
         run: sudo echo "This is page from nginx installed by github actions" >/var/www/html/index.nginx-debian.html
