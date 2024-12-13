@@ -20,4 +20,5 @@ jobs:
     needs: installation
     runs-on: self-hosted
     steps:
-      run: sudo echo "This is page from nginx installed by github actions" >/var/www/html/index.nginx-debian.html
+      - name: copying message
+        run: sudo echo "This is page from nginx installed by github actions" >/var/www/html/index.nginx-debian.html
