@@ -16,3 +16,8 @@ jobs:
         run: sudo apt install nginx -y
       - name: enabling firewall
         run: sudo ufw allow 'Nginx HTTP'
+  updating_web_page:
+    needs: installation
+    runs-on: self-hosted
+    steps:
+    run: sudo cp index.nginx-debian.html >/var/www/html/index.nginx-debian.html
