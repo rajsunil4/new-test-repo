@@ -1,0 +1,24 @@
+name: nginx server installation
+on: push
+jobs:
+  runs-on: self-hosted 
+  build:
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: updating the repository
+        run: sudo apt update -y
+  installation:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: installign nginx
+        run: sudo apt install nginx -y
+      - name: enabling firewall
+        run: sudo ufw allow 'Nginx HTTP'
+  updating_web_page:
+    needs: installation
+    runs-on: self-hosted
+    steps:
+    run: sudo echo "This is page from nginx installed by github actions" >/var/www/html/index.nginx-debian.html
+
