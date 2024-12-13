@@ -21,4 +21,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: copying message
-        run: sudo echo "This is page from nginx installed by github actions" >/var/www/html/index.nginx-debian.html
+        run: sudo cp index.html /var/www/html/index.nginx-debian.html
